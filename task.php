@@ -32,13 +32,14 @@ $numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9];
 
 $count = 0;
 
-foreach($numbers as $key => $value) {
-  if($value === 3) {
+foreach($numbers as $number) {
+  if($number === 3) {
     $count++;
-    $number = $value."は、";
   }
 }
-echo $number.$count."つあります。";
+print_r($count."回".PHP_EOL);
+
+//指摘をいただき回答を見て訂正しています。
 
 echo PHP_EOL;
 
@@ -46,6 +47,14 @@ print("#####q4#####".PHP_EOL);
 $sports = ["サッカー", "フットサル", null, "野球", "バスケ", null, "バレー"];
 
   # 以下に回答を記載
+
+$unique = array_unique($sports);
+$response = array_filter($unique, "strlen");
+$alignedUnique = array_values($response);
+
+print_r($alignedUnique);
+
+//必要ないかもしれませんが、key、空白を詰めるため上記コードになりました。
 
 echo PHP_EOL;
 
@@ -55,12 +64,32 @@ $array2 = [1, 5, 8, 10];
 
   # 以下に回答を記載
 
+if(empty($array1)) {
+  echo "true";
+} else {
+  echo "false";
+}
+
+echo PHP_EOL;
+
+if(empty($array2)) {
+  echo "true";
+} else {
+  echo "false";
+}
+
 echo PHP_EOL;
 
 print("#####q6#####".PHP_EOL);
 $numbers1 = [1, 2, 3, 4, 5];
 
   # 以下に回答を記載
+
+  foreach($numbers1 as $number) {
+    $numbers2[] = $number * 10;
+  }
+
+  print_r($numbers2);
 
 echo PHP_EOL;
 
