@@ -98,12 +98,25 @@ $array = ["1", "2", "3", "4", "5"];
 
   # 以下に回答を記載
 
+$array = array_map('intval', $array);
+
+print_r($array);
+//var_dump($array)で型確認は完了しています。
+
 echo PHP_EOL;
 
 print("#####q8#####".PHP_EOL);
-$programming_languages = ["php","ruby","python","javascript"];
+$programming = ["php","ruby","python","javascript"];
 
   # 以下に回答を記載
+
+foreach($programming as $language1) {
+  $programming_languages[] = ucfirst($language1);
+}
+
+foreach($programming as $language2) {
+  $upper_case_programming_languages[] = strtoupper($language2);
+}
 
   # 以下は変更しないで下さい
 print_r($programming_languages);
@@ -116,6 +129,15 @@ print("#####q9#####".PHP_EOL);
 $names = ["田中", "佐藤", "佐々木", "高橋"];
 
   # 以下に回答を記載
+
+$number = 0;
+
+foreach($names as $name) {
+  $number++;
+  $members_number[] = "会員No.".$number." ".$name;
+}
+
+print_r($members_number);
 
 echo PHP_EOL;
 
