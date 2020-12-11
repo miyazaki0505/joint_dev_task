@@ -146,6 +146,14 @@ $foods = ["いか","たこ","うに","しゃけ","うにぎり","うに軍艦","
 
   # 以下に回答を記載
 
+foreach($foods as $food) {
+  if(preg_match("/うに/", $food)) {
+    echo "好物です";
+  } else {
+    echo "まぁまぁ好きです";
+  }
+}
+
 echo PHP_EOL;
 
 print("#####q11#####".PHP_EOL);
@@ -153,12 +161,44 @@ $sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"],
 
   # 以下に回答を記載
 
+$sports2 = [];
+foreach($sports as $key => $sport) {
+  if(is_array($sport)) {
+    $sports2 = array_merge($sports2, $sport);
+  } else {
+    array_push($sports2, $sport);
+  }
+}
+
+$sports2 = array_unique($sports2);
+$sports2 = array_values($sports2);
+$sports3 = [];
+foreach($sports2 as $key => $sport){
+    $number = $key + 1;
+    $sport3 = "No.".$number." ".$sport;
+    array_push($sports3,$sport3);
+}
+
+print_r("ユーザの趣味一覧".PHP_EOL);
+foreach($sports3 as $sport){
+    print($sport.PHP_EOL);
+}
+
+/*
+Q11は、調べても分からず回答を見ました。
+回答を元に再度確認したいと思います。
+*/
+
 echo PHP_EOL;
 
 print("#####q12#####".PHP_EOL);
 $data = [ "user" => [ "name" => "satou", "age" => 33 ] ];
 
   # 以下に回答を記載
+
+$name = array_column($data, "name");
+
+print_r($name);
 
 echo PHP_EOL;
 
@@ -168,12 +208,20 @@ $update_data = [ "age" => 32, "address" => "沖縄" ];
 
   # 以下に回答を記載
 
+$user_data = array_replace($user_data, $update_data);
+
+print_r($user_data);
+
 echo PHP_EOL;
 
 print("#####q14#####".PHP_EOL);
 $data = [ "name" => "satou", "age" => 33, "address" => "saitama", "hobby" => "soccer", "email" => "hoge@fuga.com" ];
 
   # 以下に回答を記載
+
+$data_array = array_values($data);
+
+print_r($data_array);
 
 echo PHP_EOL;
 
@@ -182,6 +230,20 @@ $data1 = [ "name" => "saitou", "hobby" => "soccer", "age" => 33, "role" => "admi
 $data2 = [ "name" => "yamada", "hobby" => "baseball", "role" => "normal" ];
 
   # 以下に回答を記載
+
+if(isset($data1["age"])) {
+  echo "OK";
+} else {
+  echo "NG";
+}
+
+echo PHP_EOL;
+
+if(isset($data2["age"])) {
+  echo "OK";
+} else {
+  echo "NG";
+}
 
 echo PHP_EOL;
 
@@ -194,6 +256,10 @@ $users = [
 ];
 
   # 以下に回答を記載
+
+foreach($users as $value) {
+  echo "私の名前は".$value["name"]."です。年齢は".$value["age"]."歳です。\n";
+}
 
 echo PHP_EOL;
 
